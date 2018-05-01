@@ -4,7 +4,7 @@
   "description": "Polyfill for DOM Geometry Interfaces Module Level 1",
   "main": "geometry-polyfill.js",
   "repository": "git+https://github.com/jarek-foksa/geometry-polyfill.git",
-  "keywords": ["svg", "path", "polyfill"],
+  "keywords": ["dom", "geometry", "polyfill", "dommatrix", "dompoint", "domrect"],
   "author": "Jarosław Foksa",
   "license": "MIT",
   "bugs": "https://github.com/jarek-foksa/geometry-polyfill/issues",
