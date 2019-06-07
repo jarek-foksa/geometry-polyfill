@@ -653,8 +653,6 @@
     }
 
     transformPoint(point) {
-      point = new DOMPoint(point);
-
       let x = point.x;
       let y = point.y;
       let z = point.z;
