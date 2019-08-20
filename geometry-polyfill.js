@@ -45,7 +45,7 @@
     }
   }
 
-  window.DOMPoint = DOMPoint;
+  window.DOMPoint = window.DOMPoint || DOMPoint;
 }
 
 // @info
@@ -83,7 +83,7 @@
     }
   }
 
-  window.DOMRect = DOMRect;
+  window.DOMRect = window.DOMRect || DOMRect;
 }
 
 // @info
@@ -686,5 +686,5 @@
     }
   }
 
-  window.DOMMatrix = DOMMatrix;
+  window.DOMMatrix = window.DOMMatrix || DOMMatrix;
 }
