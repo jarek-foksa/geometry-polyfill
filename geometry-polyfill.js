@@ -43,6 +43,15 @@
         );
       }
     }
+
+    toJSON() {
+      return {
+        x: this.x,
+        y: this.y,
+        z: this.z,
+        w: this.w
+      };
+    }
   }
 
   window.DOMPoint = window.DOMPoint || DOMPoint;
@@ -81,6 +90,25 @@
     get bottom() {
       return this.y + this.height;
     }
+
+    toJSON() {
+      return {
+        x: this.x,
+        y: this.y,
+        width: this.width,
+        height: this.height,
+        top: this.top,
+        left: this.left,
+        right: this.right,
+        bottom: this.bottom
+      };
+    }
+  }
+
+  for (let propertyName of ["top", "right", "bottom", "left"]) {
+    let propertyDescriptor = Object.getOwnPropertyDescriptor(DOMRect.prototype, propertyName);
+    propertyDescriptor.enumerable = true;
+    Object.defineProperty(DOMRect.prototype, propertyName, propertyDescriptor);
   }
 
   window.DOMRect = window.DOMRect || DOMRect;
@@ -676,6 +704,35 @@
       return this[$values].slice(0);
     }
 
+    toJSON() {
+      return {
+        a: this.a,
+        b: this.b,
+        c: this.c,
+        d: this.d,
+        e: this.e,
+        f: this.f,
+        m11: this.m11,
+        m12: this.m12,
+        m13: this.m13,
+        m14: this.m14,
+        m21: this.m21,
+        m22: this.m22,
+        m23: this.m23,
+        m24: this.m24,
+        m31: this.m31,
+        m32: this.m32,
+        m33: this.m33,
+        m34: this.m34,
+        m41: this.m41,
+        m42: this.m42,
+        m43: this.m43,
+        m44: this.m44,
+        is2D: this.is2D,
+        isIdentity: this.isIdentity
+      };
+    }
+
     toString() {
       if (this.is2D) {
         return `matrix(${this.a}, ${this.b}, ${this.c}, ${this.d}, ${this.e}, ${this.f})`;
@@ -684,6 +741,19 @@
         return `matrix3d(${this[$values].join(", ")})`;
       }
     }
+  }
+
+  for (let propertyName of [
+    "a", "b", "c", "d", "e", "f",
+    "m11", "m12", "m13", "m14",
+    "m21", "m22", "m23", "m24",
+    "m31", "m32", "m33", "m34",
+    "m41", "m42", "m43", "m44",
+    "is2D", "isIdentity"
+  ]) {
+    let propertyDescriptor = Object.getOwnPropertyDescriptor(DOMMatrix.prototype, propertyName);
+    propertyDescriptor.enumerable = true;
+    Object.defineProperty(DOMMatrix.prototype, propertyName, propertyDescriptor);
   }
 
   window.DOMMatrix = window.DOMMatrix || DOMMatrix;
